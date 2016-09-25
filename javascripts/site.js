@@ -54,7 +54,7 @@ $j(document).ready(function () {
     $j(".mainWrapper").css('min-height', $j(window).height() - 1);
 
     function loadData(callback) {
-        $j.getJSON('file:///C:/development/learning Hub/dummy.json', callback);
+        $j.getJSON('http://hackerearth.0x10.info/api/learning-paths?type=json&query=list_paths', callback);
     }
 
     var data = [];
