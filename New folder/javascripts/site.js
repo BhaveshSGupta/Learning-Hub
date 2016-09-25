@@ -54,7 +54,7 @@ $j(document).ready(function () {
     $j(".mainWrapper").css('min-height', $j(window).height() - 1);
 
     function loadData(callback) {
-        $j.getJSON('file:///C:/development/learning Hub/dummy.json', callback);
+        $j.getJSON('https://hackerearth.0x10.info/api/learning-paths?type=json&query=list_paths', callback);
     }
 
     var data = [];
@@ -62,19 +62,20 @@ $j(document).ready(function () {
         data = json;
         $j.each(data.paths, function (i, item) {
             out = "";
-            out += "<div class='col-md-4 col-sm-6 learningHubitem'>";
-            out += "<div class='title'><h2>"
+            out += "<div class='col-md-12 learningHubitem'><div class='row'>";
+            out += "<div class='image col-md-3'><img src='"
+            out += item.image;
+            out += "'/></div><div class";
+             out += "<div class='title'><h2>"
             out += item.name;
             out += "</h2></div>";
-            out += "<div class='image'><img src='"
-            out += item.image;
-            out += "'/></div>";
-            out += "<div class='description'><h3>"
-            out += item.description;
-            out += "</h3></div>"; 
-            out += "<div class='tag'><p>"
+             out += "<div class='tag'><p>"
             out += item.tags;
             out += "</p></div>";
+            out += "<div class='description col-md-12'><h3>"
+            out += item.description;
+            out += "</h3></div>"; 
+           
              out += "<div class='learner'><p> Learners: "
             out += item.learner;
             out += "</p></div>";
@@ -83,7 +84,7 @@ $j(document).ready(function () {
             out += "</p></div>";
             out += "<div class='url'>"
             out += "<a href='" + item.sign_up + "' target='_blank' title='Opens in a new window' >View Curriculum</a>";
-            out += "</div>";
+            out += "</div></div>";
             out += "</div>";
             $j("#learningHub").append(out);
             equalHeight()
